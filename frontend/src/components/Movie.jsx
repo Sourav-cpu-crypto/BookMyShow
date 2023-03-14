@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-const Movie = () => {
+const Movie = ({setBookmovie,Bookmovie}) => {
+  const updatemoviebookname = (e) => {
+    setBookmovie({ ...Bookmovie,[e.target.name]: e.target.value });
+ 
+  };
+
   return (
     <div>
         
@@ -8,46 +13,56 @@ const Movie = () => {
           <h3>Select a Movie</h3>
             {/*Check box for showing Movies name */}
             <input
-              type="checkbox"
+              type="radio"
               class="btn-check"
-              name="options-outlined"
+              name="movie"
+              value="Suraj par mangal bhari"
               id="1"
+              
               autocomplete="off"
+              onChange={(e)=>updatemoviebookname(e)}
+
             />
             <label class="btn btn-outline-danger" for="1">
               Suraj par mangal bhari
             </label>
 
             <input
-              type="checkbox"
+              type="radio"
               class="btn-check"
-              name="options-outlined"
+              name="movie"
               id="2"
+             value="Tenet"
               autocomplete="off"
+              onChange={(e)=>updatemoviebookname(e)}
             />
             <label class="btn btn-outline-danger" for="2">
               Tenet
             </label>
 
             <input
-              type="checkbox"
+             type="radio"
               class="btn-check"
-              name="options-outlined"
-              id="2"
+              name="movie"
+              id="3"
+              value="The war with grandpa"
               autocomplete="off"
+              onChange={(e)=>updatemoviebookname(e)}
             />
-            <label class="btn btn-outline-danger" for="2">
+            <label class="btn btn-outline-danger" for="3">
               The war with grandpa
             </label>
 
             <input
-              type="checkbox"
+             type="radio"
               class="btn-check"
-              name="options-outlined"
-              id="2"
+              name="movie"
+              id="4"
+              value="The perosnal history of David Copperfield"
               autocomplete="off"
+              onChange={(e)=>updatemoviebookname(e)}
             />
-            <label class="btn btn-outline-danger" for="2">
+            <label class="btn btn-outline-danger" for="4">
               The perosnal history of David Copperfield
             </label>
           </div>

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { memo, useEffect, useState } from 'react'
+import axios from 'axios';
+const BookDetails = ({getlatesbook}) => {
 
-const BookDetails = () => {
+console.log("getlat",getlatesbook);
   return (
     <>
     <div className='border rounded border-dark mt-2'>
