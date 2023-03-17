@@ -19,7 +19,7 @@ app.use("/api",MovieBookRoutes);
 
 
 
-app.listen(8000, () => {
+app.listen(process.env.port, () => {
   connect();
   console.log("Connected to Server");
 });
