@@ -1,36 +1,46 @@
 import React, { memo } from 'react'
+import {  useSelector,useDispatch } from 'react-redux';
+import store from '../redux/store';
+import { setSeats } from '../redux/bookmovieSlice';
+const Seats = () => {
+  console.log("seatstore",store.getState())
+   const Bookmovie = useSelector((state) =>state.bookmovie.Bookmovie);
+ console.log("seatbook",Bookmovie);
 
-const Seats = ({setBookmovie,Bookmovie}) => {
+  const dispatch =useDispatch();
   function seldeselectseats(e){
+ 
     const val = Bookmovie.seats[e.target.name];
     console.log("val",val);
 if(Number(val)>0)
 {
-  const updatedSeats = {
-    ...Bookmovie.seats,
-    [e.target.name]:0
-  };
-  
-  setBookmovie({...Bookmovie,seats:updatedSeats});
 
+  
+  dispatch(setSeats({ [e.target.name]:0}));
+  console.log("seatstore",store.getState())
 }
 
 else{
 
 }
   }
-  console.log("seats",Bookmovie);
+  // console.log("seats",Bookmovie);
+
   function selectseats(e){
- 
-    const updatedSeats = {
-      ...Bookmovie.seats,
-      [e.target.name]: e.target.value
-    };
+    let name=e.target.name;
+    let value=e.target.value
+    dispatch(setSeats({ [e.target.name]:value}));
+    // const updatedSeats = {
+    //   ...Bookmovie.seats,
+    //   [e.target.name]: e.target.value
+    // };
     
-    setBookmovie({...Bookmovie,seats:updatedSeats});
-    
+    // setBookmovie({...Bookmovie,seats:updatedSeats});
+    console.log("seatstore",store.getState())
   }
-  console.log("seats",Bookmovie);
+ 
+
+  // console.log("seats",Bookmovie);
   return (
     <div>
         <div className="border rounded border-dark mb-1">
@@ -46,7 +56,8 @@ else{
             />
             <label class="btn btn-outline-danger .d-flex flex-row" for="9">
               <div className="m-0 p-0">Type A1</div>
-              <div><input type='number' name="A1" onChange={(e)=>selectseats(e)}/></div>
+              <div><input type='number' name="A1"
+               onChange={(e)=>selectseats(e)}/></div>
             </label>
             
 
@@ -60,7 +71,8 @@ else{
             />
             <label class="btn btn-outline-danger .d-flex flex-row" for="10">
               <div className="m-0 p-0">Type A2</div>
-              <div><input type='number'  name="A2"  onChange={(e)=>selectseats(e)}/></div>
+              <div><input type='number'  name="A2" 
+               onChange={(e)=>selectseats(e)} /></div>
             </label>
 
             <input

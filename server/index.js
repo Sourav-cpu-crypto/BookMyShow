@@ -10,7 +10,7 @@ import {connect} from './dbconnection/database.js'
 
 //middlewares
 app.use(cors({
-  origin: 'http://localhost:3000',
+
   methods: 'GET, POST',
 
 }));

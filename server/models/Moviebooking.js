@@ -11,15 +11,15 @@ const   MoviebookingSchema = new mongoose.Schema(
             required: true}
             ,
             A2:{type: Number,
-                required: true,},
+                required: true},
             A3:{type: Number,
-                    required: true,},
+                    required: true},
             A4:{type:Number,
-                required: true,},
+                required: true},
              D1:{type: Number,
-                required: true,},
+                required: true},
             D2:{type: Number,
-            required: true,}
+            required: true}
 },
 slot:{
     type:String,

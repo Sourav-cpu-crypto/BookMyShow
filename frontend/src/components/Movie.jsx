@@ -1,17 +1,23 @@
 import React, { memo } from 'react'
-
+import { useSelector, useDispatch } from "react-redux";
+import { setMovie } from '../redux/bookmovieSlice';
+import store from '../redux/store';
 const Movie = ({setBookmovie,Bookmovie}) => {
+  
+  const dispatch = useDispatch();
   const updatemoviebookname = (e) => {
+    dispatch(setMovie(e.target.value));
     setBookmovie({ ...Bookmovie,[e.target.name]: e.target.value });
  
   };
-
+  console.log("movstore",store.getState())
   return (
     <div>
+  
         
           <div className="border rounded border-dark mb-1">
           <h3>Select a Movie</h3>
-            {/*Check box for showing Movies name */}
+            {/*radio box for showing Movies name */}
             <input
               type="radio"
               class="btn-check"

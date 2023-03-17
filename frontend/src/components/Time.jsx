@@ -1,15 +1,20 @@
 import React, { memo } from 'react'
-
+import { setSlot } from '../redux/bookmovieSlice';
+import { useDispatch } from 'react-redux';
+import store from '../redux/store';
 const Time = ({setBookmovie,Bookmovie}) => {
+  const dispatch=useDispatch();
   const updatetimeslot = (e) => {
+    dispatch(setSlot(e.target.value));
     setBookmovie({ ...Bookmovie, [e.target.name]: e.target.value });
  
   };
+  console.log("timestore",store.getState())
   return (
     <div>
         <div className="border rounded border-dark mb-1">
             <h3>Select a Time Slot</h3>
-            {/*Check box for showing Movies Time */}
+            {/*radio box for showing Movies Time */}
             <input
               type="radio"
               class="btn-check"
