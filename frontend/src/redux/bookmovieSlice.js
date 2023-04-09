@@ -25,7 +25,6 @@ const bookMovieSlice = createSlice({
       state.Bookmovie.movie = action.payload;
     },
     setSeats: (state, action) => {
-
       state.Bookmovie.seats = {
         ...state.Bookmovie.seats,
         ...action.payload
@@ -43,30 +42,28 @@ const bookMovieSlice = createSlice({
 export const { setMovie, setSeats, setSlot, setLatestBook } = bookMovieSlice.actions;
 
 export const postBookmovie = () => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     console.log("getstate",getState().bookmovie);
-    const  Bookmovie  = getState().bookmovie.Bookmovie;
-    
-    axios.post('http://localhost:8000/api/booking', Bookmovie)
-      .then((response) => {
-          console.log(response);
-        
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const Bookmovie = getState().bookmovie.Bookmovie;
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/booking', Bookmovie);
+      console.log(response);
+      await dispatch(getlatestbook());
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
 export const getlatestbook = () => {
-  return (dispatch) => {
-    axios.get('http://localhost:8000/api/booking')
-      .then((response) => {
-        dispatch(setLatestBook(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/booking');
+      dispatch(setLatestBook(response.data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 

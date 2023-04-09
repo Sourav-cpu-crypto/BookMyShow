@@ -13,7 +13,7 @@ const BookDetails = () => {
   },[dispatch])
   const lbook = useSelector((state) =>state.bookmovie.latestBook);
   console.log("lbook",lbook);
-  useEffect(()=>{
+  useEffect(()=>{ 
     setlatestbook(lbook)
   },[lbook])
 
