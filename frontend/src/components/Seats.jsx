@@ -4,13 +4,13 @@ import store from '../redux/store';
 import { setSeats } from '../redux/bookmovieSlice';
 const Seats = () => {
   console.log("seatstore",store.getState())
-   const Bookmovie = useSelector((state) =>state.bookmovie.Bookmovie);
- console.log("seatbook",Bookmovie);
+   const seats = useSelector((state) =>state.bookmovie.Bookmovie.seats);
+ console.log("seatbook",seats);
 
   const dispatch =useDispatch();
   function seldeselectseats(e){
  
-    const val = Bookmovie.seats[e.target.name];
+    const val = seats[e.target.name];
     console.log("val",val);
 if(Number(val)>0)
 {
@@ -20,9 +20,7 @@ if(Number(val)>0)
   console.log("seatstore",store.getState())
 }
 
-else{
 
-}
   }
   // console.log("seats",Bookmovie);
 

@@ -6,7 +6,7 @@ const Time = ({setBookmovie,Bookmovie}) => {
   const dispatch=useDispatch();
   const updatetimeslot = (e) => {
     dispatch(setSlot(e.target.value));
-    setBookmovie({ ...Bookmovie, [e.target.name]: e.target.value });
+
  
   };
   console.log("timestore",store.getState())

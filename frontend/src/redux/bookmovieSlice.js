@@ -14,7 +14,8 @@ const initialState = {
     },
     slot: ""
   },
-  latestBook: null
+  latestBook: null,
+  validation:null
 };
 
 const bookMovieSlice = createSlice({

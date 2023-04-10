@@ -2,12 +2,13 @@ import React, { memo } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { setMovie } from '../redux/bookmovieSlice';
 import store from '../redux/store';
-const Movie = ({setBookmovie,Bookmovie}) => {
+const Movie = () => {
   
   const dispatch = useDispatch();
+
   const updatemoviebookname = (e) => {
     dispatch(setMovie(e.target.value));
-    setBookmovie({ ...Bookmovie,[e.target.name]: e.target.value });
+  
  
   };
   console.log("movstore",store.getState())

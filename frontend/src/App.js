@@ -11,8 +11,8 @@ function App() {
   const dispatch =useDispatch();
   console.log("store1",store.getState())
 
- const Bookmovie = useSelector((state) =>state.bookmovie.Bookmovie);
-  console.log("appbook",Bookmovie);
+//  const Bookmovie = useSelector((state) =>state.bookmovie.Bookmovie);
+//   console.log("appbook",Bookmovie);
 
 
 const postBook = () => {
