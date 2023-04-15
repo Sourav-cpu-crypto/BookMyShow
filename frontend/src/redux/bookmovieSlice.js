@@ -80,7 +80,7 @@ export const postBookmovie = () => {
       if(val==="")
       {
        try {
-         const response = await axios.post('http://localhost:8000/api/booking', valBookmovie);
+         const response = await axios.post('http://localhost:8000/api/booking',valBookmovie);
          console.log(response);
          dispatch(setLatestBook(response.data));
        } catch (error) {
