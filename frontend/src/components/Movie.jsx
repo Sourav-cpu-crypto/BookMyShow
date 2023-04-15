@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { setMovie } from '../redux/bookmovieSlice';
-import store from '../redux/store';
+
 const Movie = () => {
-  
+
   const dispatch = useDispatch();
 
   const updatemoviebookname = (e) => {
@@ -11,7 +11,7 @@ const Movie = () => {
   
  
   };
-  console.log("movstore",store.getState())
+
   return (
     <div>
   

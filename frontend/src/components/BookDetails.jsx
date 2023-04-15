@@ -34,7 +34,7 @@ const BookDetails = () => {
        
        <h5>slot: {getlatest.slot}</h5>
        <h5>movie: {getlatest.movie} </h5>
-       </> : ""}
+       </> : "no previous booking found"}
  
     </div>
     </>
