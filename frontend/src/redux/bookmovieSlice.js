@@ -45,7 +45,7 @@ state.valid=action.payload;
 });
 
 export const { setMovie, setSeats, setSlot, setLatestBook,setValidate } = bookMovieSlice.actions;
-export const Validation=(valBookmovie)=>{
+const Validation=(valBookmovie)=>{
   //  console.log("valslot",valBookmovie.slot);
   if(valBookmovie.movie===""){
     
@@ -68,12 +68,13 @@ export const Validation=(valBookmovie)=>{
   return "";
   }
 }
+//
 export const postBookmovie = () => {
   return async (dispatch, getState) => {
     console.log("getstate",getState().bookmovie);
  
     try{
-      const valBookmovie =await getState().bookmovie.Bookmovie;
+      const valBookmovie = await getState().bookmovie.Bookmovie;
       console.log("slicebook",valBookmovie)
       const val= Validation(valBookmovie);
       console.log("val",val)
@@ -83,6 +84,7 @@ export const postBookmovie = () => {
          const response = await axios.post('http://localhost:8000/api/booking',valBookmovie);
          console.log(response);
          dispatch(setLatestBook(response.data));
+         dispatch(setValidate(""));
        } catch (error) {
          console.log(error);
        }
@@ -108,7 +110,7 @@ export const getlatestbook = () => {
       const response = await axios.get('http://localhost:8000/api/booking');
       dispatch(setLatestBook(response.data));
     } catch (error) {
-      console.log(error);
+      dispatch(setLatestBook(error));
     }
   };
 };

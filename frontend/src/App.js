@@ -26,26 +26,10 @@ const postBook = () => {
   dispatch(postBookmovie());
 
    
-  // console.log("appbook",Bookmovie);
-  // console.log("bookanewmovie",Bookmovie);
-  // axios.post('http://localhost:8000/api/booking',Bookmovie)
-  //   .then((response) => {
-  // getlatestbook();
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+
 }
 const valid = useSelector((state) =>state.bookmovie.valid);
-useEffect(()=>{ 
-  setval(valid)
-},[valid])
-function val(){
-    console.log("checkval",checkval);
-    if(checkval!=="false"){
-      alert("invalid");
-    }
-  }
+
 
 
   return (
@@ -61,7 +45,7 @@ function val(){
           <Movie  />
           {/*Component Contain all the movies time */}
           <Time />
-          {/*Component Contain all the Seats */}
+          {/*Component Contain all the movie Seats */}
           <Seats />
         </div>
         <div className="col-lg-4">
@@ -69,6 +53,7 @@ function val(){
           <BookDetails/>
         </div>
       </div>
+         {/*Button to book movie */}
       <button className="book" onClick={postBook}>Book now</button>
     </>
   );
